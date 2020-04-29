@@ -1,0 +1,11 @@
+{
+    "id": "point-placing-editor",
+    "name": "Point Placing Editor",
+    "srcdoc": "./app.html",
+    "fieldTypes": [
+        "Integer",
+        "Number",
+        "String",
+        "Media"
+    ]
+}
