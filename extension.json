@@ -1,11 +1,13 @@
 {
-    "id": "point-placing-editor",
-    "name": "Point Placing Editor",
-    "srcdoc": "./app.html",
-    "fieldTypes": [
-        "Integer",
-        "Number",
-        "String",
-        "Media"
-    ]
+  "id": "point-placing-editor",
+  "name": "point-placing-editor",
+  "srcdoc": "./build/index.html",
+  "fieldTypes": [
+    "Symbol",
+    "Text",
+    "RichText",
+    "Number",
+    "Object",
+    "Asset"
+  ]
 }
