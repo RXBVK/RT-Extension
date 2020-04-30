@@ -16,10 +16,7 @@ export class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: props.sdk.field.getValue() || '',
-      imgSrc: "",
-      top: "",
-      left: ""
+      value: props.sdk.field.getValue() || ''
     };
   }
 
@@ -50,22 +47,16 @@ export class App extends React.Component {
     }
   };
 
-  handleCoords = (e) => {
-    this.setState({
-      top: `${Math.round(e.nativeEvent.offsetY * 100 / e.target.height)}%`,
-      left: `${Math.round(e.nativeEvent.offsetX * 100 / e.target.width)}%`
-    })
-  }
   render() {
     return (
-      <div className="point-editor-wrap">
-        <input type="file" accept="image/png, image/jpeg" id="image-input" value={this.state.value} onInput={(e) => { this.setState({ imgSrc: e.target.files[0].name }) }} />
-        <div id="image-container">
-          {this.state.imgSrc ? <img src={this.state.imgSrc} onClick={this.handleCoords} /> : "Choose an image"}
-        </div>
-        <TextInput type="text" width="medium" value={this.state.top || "Click on image to set Y."} disabled />
-        <TextInput type="text" width="medium" value={this.state.left || "Click on image to set X."} disabled />
-      </div>
+      <TextInput
+        width="large"
+        type="text"
+        id="my-field"
+        testId="my-field"
+        value={this.state.value}
+        onChange={this.onChange}
+      />
     );
   }
 }
