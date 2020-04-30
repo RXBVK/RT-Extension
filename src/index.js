@@ -16,7 +16,10 @@ export class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: props.sdk.field.getValue() || ''
+      value: props.sdk.field.getValue() || '',
+      imgSrc: "",
+      top: "",
+      left: ""
     };
   }
 
@@ -47,33 +50,6 @@ export class App extends React.Component {
     }
   };
 
-  render() {
-    return (
-      <TextInput
-        width="large"
-        type="text"
-        id="my-field"
-        testId="my-field"
-        value={this.state.value}
-        onChange={this.onChange}
-      />
-    );
-  }
-}
-
-init(sdk => {
-  ReactDOM.render(<App sdk={sdk} />, document.getElementById('root'));
-});
-
-class Main extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      imgSrc: "",
-      top: "",
-      left: ""
-    }
-  }
   handleCoords = (e) => {
     this.setState({
       top: `${Math.round(e.nativeEvent.offsetY * 100 / e.target.height)}%`,
@@ -90,12 +66,13 @@ class Main extends React.Component {
         <TextInput type="text" width="medium" value={this.state.top || "Click on image to set Y."} disabled />
         <TextInput type="text" width="medium" value={this.state.left || "Click on image to set X."} disabled />
       </div>
-    )
+    );
   }
 }
 
-
-ReactDOM.render(<Main />, document.getElementById("root"));
+init(sdk => {
+  ReactDOM.render(<App sdk={sdk} />, document.getElementById('root'));
+});
 /**
  * By default, iframe of the extension is fully reloaded on every save of a source file.
  * If you want to use HMR (hot module reload) instead of full reload, uncomment the following lines
