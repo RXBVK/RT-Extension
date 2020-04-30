@@ -87,14 +87,8 @@ class Main extends React.Component {
         <div id="image-container">
           {this.state.imgSrc ? <img src={this.state.imgSrc} onClick={this.handleCoords} /> : "Choose an image"}
         </div>
-        <label>Top:</label>
-        <div className="TextInput__TextInput___36-K- css-93644d TextInput__TextInput--large___KwY4O TextInput__TextInput--disabled___2t7VS">
-          <input type="text" id="coords-top" value={this.state.top || "Click on image to set a point."} className="TextInput__TextInput__input___27vDB a11y__focus-border--default___60AXp" disabled></input> <br />
-        </div>
-        <label>Left:</label>
-        <div className="TextInput__TextInput___36-K- css-93644d TextInput__TextInput--large___KwY4O TextInput__TextInput--disabled___2t7VS">
-          <input type="text" id="coords-left" value={this.state.left || "Click on image to set a point."} className="TextInput__TextInput__input___27vDB a11y__focus-border--default___60AXp" disabled></input>
-        </div>
+        <TextInput type="text" width="medium" value={this.state.top || "Click on image to set Y."} disabled />
+        <TextInput type="text" width="medium" value={this.state.left || "Click on image to set X."} disabled />
       </div>
     )
   }
