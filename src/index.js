@@ -51,6 +51,8 @@ export class App extends React.Component {
     const locales = this.props.sdk.locales.available[0];
     const imageID = image.getValue().sys.id;
     const asset = this.props.sdk.space.getAsset(imageID).then((response) => this.setState({ imgSrc: response.fields.file[locales].url }));
+
+    this.props.sdk.window.startAutoResizer();
   }
 
   render() {
